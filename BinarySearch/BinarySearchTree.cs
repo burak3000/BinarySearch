@@ -236,15 +236,15 @@ namespace BinarySearch
             }
         }
 
-        public CommandNode FindNextPrioritizedCommand()
+        public CommandNode FindNextTopPriorityNode()
         {
             lock (s_Lock)
             {
-                return FindNextPrioritizedCommand(Root);
+                return FindNextTopPriorityNode(Root);
             }
         }
 
-        private CommandNode FindNextPrioritizedCommand(CommandNode currentNode)
+        private CommandNode FindNextTopPriorityNode(CommandNode currentNode)
         {
             if (currentNode != null)
             {
@@ -252,7 +252,7 @@ namespace BinarySearch
                 {
                     return currentNode;
                 }
-                currentNode = FindNextPrioritizedCommand(currentNode.RightNode);
+                currentNode = FindNextTopPriorityNode(currentNode.RightNode);
             }
 
             return currentNode;

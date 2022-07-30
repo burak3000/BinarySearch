@@ -193,12 +193,12 @@ namespace BinarySearch
             for (int i = 0; i < 10; i++)
             {
                 m_Tree.Add(new CommandNode { Priority = i });
-                Assert.AreEqual(i, m_Tree.FindNextPrioritizedCommand().Priority);
+                Assert.AreEqual(i, m_Tree.FindNextTopPriorityNode().Priority);
             }
             for (int i = 9; i >= 1; i--)
             {
                 m_Tree.Remove(m_Tree.Find(i));
-                Assert.AreEqual(i - 1, m_Tree.FindNextPrioritizedCommand().Priority);
+                Assert.AreEqual(i - 1, m_Tree.FindNextTopPriorityNode().Priority);
             }
         }
     }
